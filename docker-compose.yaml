@@ -1,1 +1,21 @@
 version: '3.8'
+
+services:
+
+  frontend:
+    build: ./ait-finances-frontend
+    container_name: frontend
+    ports:
+      - '3000:3000'
+    volumes: 
+      - ./ait-finances-frontend:/app
+      - /app/node_modules
+
+  backend:
+    build: ./ait-finances-backend
+    container_name: backend
+    ports:
+      - '4000:4000'
+    volumes: 
+      - ./ait-finances-backend:/app
+      - /app/node_modules
